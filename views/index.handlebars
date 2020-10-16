@@ -1,1 +1,7 @@
-<h1> Welcome back, unknown!</h1>>
+<div class="m-3">
+  {{#if name}}
+  <h1> Welcome back, {{name}}</h1>
+  {{else}}
+  <h1> Ah oh, you may not pass the authentication.</h1>
+  {{/if}}
+</div>

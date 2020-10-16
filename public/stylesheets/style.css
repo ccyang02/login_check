@@ -14,7 +14,7 @@ body {
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
   width:380px;
-  height:420px;
+  /* height:420px; */
   margin-top: 10%;
   display: flex;
 /*   padding: 10px; */

@@ -8,16 +8,24 @@
     <div class="card-body text-center">
       <form action="/login" method="POST">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="username" placeholder="Username">
+          <input type="text" class="form-control" name="email" placeholder="email">
         </div>
         <div class="input-group mb-3">
           <input type="password" class="form-control" name="password" placeholder="password">
         </div>
+        {{#if fail}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          Login failed. Please check again.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {{/if}}
         <input class="btn btn-primary" type="submit" value="登入" />
     </div>
 
     <div class="card-footer text-center">
-      <small class="text-muted">Please enter your username and password.</small>
+      <small class="text-muted">Please enter your email and password.</small>
     </div>
   </div>
 </div>
