@@ -2,7 +2,7 @@
 
 It's a login function exercise about express and mongoose.
 
-![flow](./public/images/flow.jpg)
+![flow](./public/images/flow.JPG)
 
 ### Users could...
 
