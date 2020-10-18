@@ -1,8 +1,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const session = require('express-session')
 const Info = require('../../models/info')
 const router = express.Router()
 router.use(bodyParser.urlencoded({ extended: true }))
+router.use(session({ secret: 'secret', resave: false, saveUninitialized: true }))
 
 router.get('/', (req, res) => {
   res.redirect('/login')
@@ -22,11 +24,11 @@ router.post('/login', (req, res) => {
   return Info.find({ email, password })
     .lean()
     .then(user => {
-      user.forEach(u => console.log('>>' + u))
       if (user.length != 0) {
         const name = user[0].firstName
         console.log('pass!')
-        res.redirect(`/index?name=${name}`)
+        req.session.middleData = name
+        res.redirect(`/index`)
       } else {
         console.log('fail!')
         res.redirect('/login?fail=true')

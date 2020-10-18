@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const session = require('express-session')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const routes = require('./routes')
@@ -11,6 +12,7 @@ app.set('view engine', 'handlebars')
 app.use(routes)
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(session({ secret: 'secret', resave: false, saveUninitialized: true }))
 
 mongoose.connect('mongodb://localhost/login-info', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
